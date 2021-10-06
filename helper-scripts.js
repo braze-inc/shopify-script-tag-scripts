@@ -1,9 +1,14 @@
 function whenInitialized(callback) {
 	var interval = 1000;
 	window.setTimeout(function() {
-		if (appboy && appboy.getUser()) {
-			callback();
-		} else {
+		try{
+			if (appboy && appboy.getUser()) {
+				callback();
+			} else {
+				whenInitialized(callback);
+			}
+		}
+		catch(err){
 			whenInitialized(callback);
 		}
 	}, interval);
