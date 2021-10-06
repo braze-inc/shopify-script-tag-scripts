@@ -1,5 +1,5 @@
 function whenInitialized(callback) {
-	var interval = 1000;
+	var interval = 100;
 	window.setTimeout(function() {
 		try{
 			if (appboy && appboy.getUser()) {
