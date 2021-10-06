@@ -72,7 +72,7 @@ whenInitialized(function() {
 		}, { threshold: [1] });
 
 		products = document.querySelectorAll("[href*='/products/']");
-		for(var i=0;i<elems.length;i++){
+		for(var i=0;i<products.length;i++){
 			observer.observe(products[i]);
 		}
 	}
