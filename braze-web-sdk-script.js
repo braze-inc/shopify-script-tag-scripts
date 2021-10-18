@@ -16,7 +16,7 @@ function whenInitialized(callback) {
 
 const url = new URL([...document.getElementsByTagName("script")]
 		.map(script => script.src)
-		.find(src => src.includes("appboy.min.js"))
+		.find(src => src.includes("braze-web-sdk-script.js"))
 	);
 const urlSearch = new URLSearchParams(url.search)
 const queryParams = Object.fromEntries(urlSearch.entries())
