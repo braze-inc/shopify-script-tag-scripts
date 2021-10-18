@@ -20,12 +20,7 @@ function getApiUrlAndApiKeyQueryParams(){
 
 const cart_cookie = readCookie("cart");
 const cart_storage = localStorage.getItem('cart_token');
-if (typeof ShopifyAnalytics != "undefined") {
-	const customer_id = ShopifyAnalytics.meta.page.customerId;
-}
-else{
-	const customer_id = null;
-}
+const customer_id = typeof ShopifyAnalytics != "undefined" ? ShopifyAnalytics.meta.page.customerId : null
 if(cart_cookie != null && cart_cookie != cart_storage && customer_id){
 	localStorage.setItem('cart_token', cart_cookie);
 	const queryParams = getApiUrlAndApiKeyQueryParams()
