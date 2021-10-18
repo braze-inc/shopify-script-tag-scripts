@@ -29,5 +29,6 @@ else{
 if(cart_cookie != null && cart_cookie != cart_storage && customer_id){
 	localStorage.setItem('cart_token', cart_cookie);
 	const queryParams = getApiUrlAndApiKeyQueryParams()
-	fetch(queryParams["api_url"]+'/ecommerce/shopify/cart_update?cart_token=${cart_cookie}&customer_id=${customer_id}&api_key=${queryParams["api_key"]}'+, "POST")
+	console.log("will be doing a post fetch to "+queryParams["api_url"]+'/ecommerce/shopify/cart_update?cart_token=${cart_cookie}&customer_id=${customer_id}&api_key=${queryParams["api_key"]}');
+	// fetch(queryParams["api_url"]+'/ecommerce/shopify/cart_update?cart_token=${cart_cookie}&customer_id=${customer_id}&api_key=${queryParams["api_key"]}', "POST")
 }
