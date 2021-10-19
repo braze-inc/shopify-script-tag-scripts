@@ -14,13 +14,13 @@ function fetchAndLogProduct(productPath, event){
 	  .then(response => response.json())
 	  .then(data => {
 	  		console.log(productPath+" "+event+" "+data);
-	      	// appboy.logCustomEvent(event, {
-	      	// 	'id': data.id,
-	      	// 	'title': data.title,
-	      	// 	'price': data.price,
-	      	// 	'vendor': data.vendor,
-	      	// 	'images': data.images
-	      	// });
+	      	appboy.logCustomEvent(event, {
+	      		'id': data.id,
+	      		'title': data.title,
+	      		'price': data.price,
+	      		'vendor': data.vendor,
+	      		'images': data.images
+	      	});
     });
 }
 

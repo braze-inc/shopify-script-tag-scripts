@@ -20,14 +20,11 @@ const url = new URL([...document.getElementsByTagName("script")]
 	);
 const urlSearch = new URLSearchParams(url.search)
 const queryParams = Object.fromEntries(urlSearch.entries())
-console.log("initializing sdk with "+queryParams["api_key"]+" and "+queryParams["sdk_url"]);
 appboy.initialize(queryParams["api_key"],{baseUrl: queryParams["sdk_url"]});
-if(queryParams["in_browser_msgs"]){
-	console.log("initializing in browser messages");
+if(queryParams["in_browser_msgs"] == "true"){
 	appboy.display.automaticallyShowNewInAppMessages();
 }
-if(queryParams["content_cards"]){
-	console.log("initializing content cards");
+if(queryParams["content_cards"] == "true"){
 	appboy.display.toggleContentCards();
 }
 appboy.openSession();
