@@ -25,6 +25,6 @@ if(queryParams["in_browser_msgs"] == "true"){
 	appboy.display.automaticallyShowNewInAppMessages();
 }
 if(queryParams["content_cards"] == "true"){
-	appboy.display.toggleContentCards();
+	appboy.display.showContentCards();
 }
 appboy.openSession();
