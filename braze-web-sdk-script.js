@@ -3,17 +3,6 @@
     y.async=1;(b=p.getElementsByTagName(P)[0]).parentNode.insertBefore(y,b)
   }(window,document,'script');
 
-function whenInitialized(callback) {
-	const interval = 100;
-	window.setTimeout(function() {
-		if (typeof document != "undefined" && typeof document.body != "undefined") {
-			callback();
-		} else {
-			whenInitialized(callback);
-		}
-	}, interval);
-}
-
 const url = new URL([...document.getElementsByTagName("script")]
 		.map(script => script.src)
 		.find(src => src.includes("braze-web-sdk-script.js"))
