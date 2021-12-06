@@ -1,3 +1,7 @@
+if (window.appboy){
+	console.log("SDK DEFINED!")
+}
+
 const existingWebSDK = [...document.getElementsByTagName("script")]
 	.map(script => script.src)
 	.find(src => src === "https://js.appboycdn.com/web-sdk/3.4/appboy.min.js")
