@@ -58,7 +58,7 @@ whenInitialized(function() {
 				if(products[j].isIntersecting === true){
 					productName = products[j].target.href.substring(products[j].target.href.indexOf("/products/")+10)
 					productLastViewedAt = alreadyViewedProducts[productName] || 0
-					if(now-productViewedLastAt > one_day_millis){
+					if(now-productLastViewedAt > one_day_millis){
 						alreadyViewedProducts[productName] = now;
 						fetchAndLogProduct("/products/"+productName, 'shopify_product_viewed');
 					}
