@@ -14,7 +14,7 @@
 			queryParams["api_key"],
 			{
 				baseUrl: queryParams["sdk_url"], 
-				enableHtmlInAppMessages:queryParams["in_browser_msgs"] == "true"
+				enableHtmlInAppMessages:queryParams["in_browser_msgs"] == "true",
 				enableLogging: true
 			}
 		);
