@@ -21,7 +21,7 @@
 							localStorage.setItem('cart_token', cart_cookie);
 							const queryParams = getApiUrlAndApiKeyQueryParams()
 							fetch(
-								queryParams["api_url"]+`/ecommerce/shopify/cart_update?cart_token=${cart_cookie}&device_id=${device_id}&api_key=${queryParams["api_key"]}&shop=${queryParams["shop"]}`, 
+								queryParams["sdk_url"]+`/api/v3/shopify/cart_update?cart_token=${cart_cookie}&device_id=${device_id}&api_key=${queryParams["api_key"]}&shop=${queryParams["shop"]}`, 
 								{method: 'POST'}
 							);
 						}
