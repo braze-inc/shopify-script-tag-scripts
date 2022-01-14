@@ -37,9 +37,9 @@
 		currentPath = window.location.pathname
 		now = Date.now()
 		one_day_millis = 86400000
-						
+		const queryParams = getApiUrlAndApiKeyQueryParams()
 
-		if(currentPath.startsWith("/products/")){      
+		if(queryParams["product_click"] == "true" && currentPath.startsWith("/products/")){      
 			const alreadyClickedProducts = JSON.parse(localStorage.getItem('clicked_products') || "{}");
 
 			productName = currentPath.substring(10)
@@ -50,7 +50,7 @@
 				fetchAndLogProduct(currentPath, 'shopify_product_clicked');
 			}      
 		}
-		if(currentPath.startsWith("/collections/")){
+		if(queryParams["product_view"] == "true" && currentPath.startsWith("/collections/")){
 			const observer = new IntersectionObserver(function(products, observer) {
 				const alreadyViewedProducts = JSON.parse(localStorage.getItem('viewed_products') || "{}");
 				for(const product of products){
