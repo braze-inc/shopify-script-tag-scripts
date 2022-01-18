@@ -21,9 +21,10 @@
 		return null;
 	}
   
-  	ns.fetch = function() {
+  	ns.fetch = async function() {
+  		const response = await fetch.apply(this, arguments);
 	  	if(arguments[0] == "/cart.js"){
-		    fetch.apply(this, arguments).then(response => response.json()).then(data => { 
+		    response.clone().json().then(data => { 
 		    	if(data["item_count"] > 0){
 		  			const cart_cookie = data["token"];
 					const cart_storage = localStorage.getItem('cart_token');
@@ -54,6 +55,6 @@
 				}
 			});	
 	  	}
-	    return fetch.apply(this, arguments);;
+	    return response;
   	}	
 }(window, window.fetch));
