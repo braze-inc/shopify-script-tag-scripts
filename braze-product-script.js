@@ -33,38 +33,43 @@
 		return Object.fromEntries(urlSearch.entries())
 	}
 
+	function attemptToLogEvent(event, productPath, cachedProductsStr, now, oneDayMillis) {
+		productName = productPath.substring(10)
+		const cachedProducts = JSON.parse(localStorage.getItem(cachedProductsStr) || "{}");
+		lastEventTimeForProduct = cachedProducts[productName] || 0
+		if (now-lastEventTimeForProduct > oneDayMillis){
+			cachedProducts[productName] = now;
+			localStorage.setItem(cachedProductsStr, JSON.stringify(cachedProducts));
+			fetchAndLogProduct(productPath, event);
+		}
+	}
+
 	whenInitialized(function() {
 		currentPath = window.location.pathname
 		now = Date.now()
-		one_day_millis = 86400000
+		oneDayMillis = 86400000
 		const queryParams = getApiUrlAndApiKeyQueryParams()
+		const viewedProductsStr = 'viewed_products'
 
-		if(queryParams["product_click"] == "true" && currentPath.startsWith("/products/")){      
-			const alreadyClickedProducts = JSON.parse(localStorage.getItem('clicked_products') || "{}");
-
-			productName = currentPath.substring(10)
-			productLastClickedAt = alreadyClickedProducts[productName] || 0
-			if (now-productLastClickedAt > one_day_millis){
-				alreadyClickedProducts[productName] = now;
-				localStorage.setItem('clicked_products', JSON.stringify(alreadyClickedProducts));
-				fetchAndLogProduct(currentPath, 'shopify_product_clicked');
-			}      
+		if(queryParams["product_click"] == "true" && currentPath.startsWith("/products/")){   
+			attemptToLogEvent('shopify_product_clicked', currentPath, 'clicked_products', now, oneDayMillis);
+			attemptToLogEvent('shopify_product_viewed', currentPath, viewedProductsStr, now, oneDayMillis);
 		}
 		if(queryParams["product_view"] == "true" && currentPath.startsWith("/collections/")){
 			const observer = new IntersectionObserver(function(products, observer) {
-				const alreadyViewedProducts = JSON.parse(localStorage.getItem('viewed_products') || "{}");
+				const alreadyViewedProducts = JSON.parse(localStorage.getItem(viewedProductsStr) || "{}");
 				for(const product of products){
 					if(product.isIntersecting === true){
 						productName = product.target.href.substring(product.target.href.indexOf("/products/")+10)
 						productLastViewedAt = alreadyViewedProducts[productName] || 0
-						if(now-productLastViewedAt > one_day_millis){
+						if(now-productLastViewedAt > oneDayMillis){
 							alreadyViewedProducts[productName] = now;
 							fetchAndLogProduct("/products/"+productName, 'shopify_product_viewed');
 						}
 						observer.unobserve(product.target);
 					}
 				}
-				localStorage.setItem('viewed_products', JSON.stringify(alreadyViewedProducts));
+				localStorage.setItem(viewedProductsStr, JSON.stringify(alreadyViewedProducts));
 
 			}, { threshold: [1] });
 
