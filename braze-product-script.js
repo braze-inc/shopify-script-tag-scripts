@@ -51,9 +51,13 @@
 		const queryParams = getApiUrlAndApiKeyQueryParams()
 		const viewedProductsStr = 'viewed_products'
 
-		if(queryParams["product_click"] == "true" && currentPath.startsWith("/products/")){   
-			attemptToLogEvent('shopify_product_clicked', currentPath, 'clicked_products', now, oneDayMillis);
-			attemptToLogEvent('shopify_product_viewed', currentPath, viewedProductsStr, now, oneDayMillis);
+		if(currentPath.startsWith("/products/")){
+			if (queryParams["product_click"] == "true") {
+				attemptToLogEvent('shopify_product_clicked', currentPath, 'clicked_products', now, oneDayMillis);
+			}
+			if (queryParams["product_view"] == "true") {
+				attemptToLogEvent('shopify_product_viewed', currentPath, viewedProductsStr, now, oneDayMillis);
+			}
 		}
 		if(queryParams["product_view"] == "true" && currentPath.startsWith("/collections/")){
 			const observer = new IntersectionObserver(function(products, observer) {
