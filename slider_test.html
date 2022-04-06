@@ -43,126 +43,14 @@
       body.black {
           background: #000;
       }
-      #header {
-          /* display: block; */
-          /* position: fixed; */
-          margin: 0 auto;
-          width: 100%;
-          max-width: 100%;
-          box-shadow: none;
-          position: fixed;
-          height: 60px!important;
-          /* overflow: hidden; */
-          z-index: 10;
-          bottom: 600px;
-          transform: translateY(600px);
-          transition: transform 500ms ease-in-out;
-      }
-      #sidebarMenu {
-          /* height: 100%; */
-          height: auto;
-          position: fixed;
-          /* left: 0; */
-          bottom: 0;
-          /* width: 450px; */
-          width: 100%;
-          /* margin-top: 60px; */
-          /* transform: translateX(-450px); */
-          transform: translateY(600px);
-          transition: transform 500ms ease-in-out;
-      }
-      .sidebarMenuInner{
-          margin:0;
-          padding:0;
-          border-top: 1px solid rgba(255, 255, 255, 0.10);
-      }
-      input[type="checkbox"]:checked ~ #sidebarMenu {
-          /* transform: translateX(0); */
-          transform: translateY(0);
-      }
-      input[type="checkbox"]:checked ~ #header {
-          /* transform: translateX(0); */
-          transform: translateY(0);
-      }
-
-      input[type=checkbox] {
-          transition: all 0.3s;
-          box-sizing: border-box;
-          display: none;
-      }
-      .sidebarIconToggle {
-          transition: all 0.3s;
-          box-sizing: border-box;
-          cursor: pointer;
-          position: absolute;
-          z-index: 99;
-          height: 100%;
-          width: 100%;
-          top: 22px;
-          left: 15px;
-          height: 22px;
-          width: 22px;
-      }
-      .spinner {
-          transition: all 0.3s;
-          box-sizing: border-box;
-          position: absolute;
-          height: 3px;
-          width: 100%;
-          background-color: #fff;
-      }
-      .horizontal {
-          transition: all 0.3s;
-          box-sizing: border-box;
-          position: relative;
-          float: left;
-          margin-top: 3px;
-      }
-      .diagonal.part-1 {
-          position: relative;
-          transition: all 0.3s;
-          box-sizing: border-box;
-          float: left;
-      }
-      .diagonal.part-2 {
-          transition: all 0.3s;
-          box-sizing: border-box;
-          position: relative;
-          float: left;
-          margin-top: 3px;
-      }
-      input[type=checkbox]:checked ~ .sidebarIconToggle > .horizontal {
-          transition: all 0.3s;
-          box-sizing: border-box;
-          opacity: 0;
-      }
-      input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-1 {
-          transition: all 0.3s;
-          box-sizing: border-box;
-          transform: rotate(135deg);
-          margin-top: 8px;
-      }
-      input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
-          transition: all 0.3s;
-          box-sizing: border-box;
-          transform: rotate(-135deg);
-          margin-top: -9px;
-      }
 
       .menu
       {
+        height: auto;
         position:fixed;
-        left:0px;
-        top:-500px;
-        /* bottom: -500px; */
-        
-        width:100vw;
-        padding-bottom:50px;
-        /* padding-bottom:0; */
-        padding-left:0;
-        padding-right:0;
-        padding-top:0;
-        /* padding-top:50px; */
+        bottom: 0;
+        width: 100%;
+        padding:50px 0 0 0;
         margin: 0;
         text-align:center;
         
@@ -171,17 +59,14 @@
         font-size:20px;
         color:white;
         
-        /* transition */
-        
-        transition:top 1s;
-        -webkit-transition:top 1s;
-        /* transition:bottom 1s;
-        -webkit-transition:bottom 1s; */
+        transform: translateY(500px);
+        transition:transform 500ms ease-in-out;
       }
 
       .menu:hover
       {
-        top:0px;  
+        bottom:0px;
+        transform: translateY(0);
       }
 
       .menu div
@@ -200,18 +85,7 @@
       }
     </style>
   </head>
-  <!-- <body> -->
   <body class="black">
-    <!-- <div id="root"></div> -->
-
-    <!-- <div id="header"></div>
-    <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu" />
-    <label for="openSidebarMenu" class="sidebarIconToggle">
-      <div class="spinner diagonal part-1"></div>
-      <div class="spinner horizontal"></div>
-      <div class="spinner diagonal part-2"></div>
-    </label> -->
-    <!-- <div id="sidebarMenu"> -->
     <div class="menu">
       <div id="myCarousel" class="carousel slide" data-interval="false">
         <ol class="carousel-indicators">
