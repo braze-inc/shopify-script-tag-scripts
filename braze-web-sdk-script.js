@@ -27,8 +27,49 @@
 		if(queryParams["content_cards"] == "true") {
 			appboy.subscribeToContentCardsUpdates(function(updates) {
     				const cards = updates.cards;
+				console.log("Content cards:");
     				console.table(cards);
-			});
+
+				const containerElement = document.getElementById("powContainer");
+				var cardDiv = document.createElement("div");
+				while(cardDiv.firstChild) {
+					cardDiv.removeChild(cardDiv.firstChild);
+				}
+
+				if (cards && cards.length) {
+					cards.forEach((card, index) => {
+						if (index == 0) {
+							cardDiv.class = "item active";
+						} else {
+							cardDiv.class = "item";
+						}
+
+						var cardLink = document.createElement("a");
+						cardLink.href = card.url;
+						cardLink.title = card.linkText;
+						cardDiv.appendChild(cardLink);
+
+						var cardImage = document.createElement("img");
+						cardImage.class = "carousel-panel";
+						cardImage.src = card.imageUrl;
+						cardLink.appendChild(cardImage);
+
+						var cardCaption = document.createElement("div");
+						cardCaption.class = "carousel-caption";
+						cardLink.appendChild(cardCaption);
+
+						var cardTitle = document.createElement("h2");
+						cardTitle.innerHTML = card.title;
+						cardCaption.appendChild(cardTitle);
+
+						var cardText = document.createElement("span");
+						cardText.innerHTML = card.description;
+						cardCaption.appendChild(cardText);
+
+						containerElement.appendChild(cardDiv);
+					});
+				}
+			);
 			appboy.requestContentCardsRefresh();
 		}
 		
