@@ -75,8 +75,7 @@
 			console.log("ZERO CONTENT CARD FEED");
 		}
 		
-		appboy.openSession();
-		appboy.addSdkMetadata([ appboy.BrazeSdkMetadata.SHOPIFY, appboy.BrazeSdkMetadata.CDN ]);
+		appboy.addSdkMetadata([ appboy.BrazeSdkMetadata.CDN ]);
 		appboy.openSession();
 
 	};
