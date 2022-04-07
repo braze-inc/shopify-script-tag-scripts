@@ -22,7 +22,6 @@
 		if(queryParams["in_browser_msgs"] == "true"){
 			appboy.display.automaticallyShowNewInAppMessages();
 		}
-		appboy.addSdkMetadata([ appboy.BrazeSdkMetadata.SHOPIFY, appboy.BrazeSdkMetadata.CDN ]);
 		
 		if(queryParams["content_cards"] == "true") {
 			console.log("SUBSCRIBING TO CONTENT CARD FEED???");
@@ -72,8 +71,12 @@
 				}
 			});
 			appboy.requestContentCardsRefresh();
+		} else {
+			console.log("ZERO CONTENT CARD FEED");
 		}
 		
+		appboy.openSession();
+		appboy.addSdkMetadata([ appboy.BrazeSdkMetadata.SHOPIFY, appboy.BrazeSdkMetadata.CDN ]);
 		appboy.openSession();
 
 	};
