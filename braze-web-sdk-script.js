@@ -26,18 +26,18 @@
 		
 		if(queryParams["content_cards"] == "true") {
 			appboy.subscribeToContentCardsUpdates(function(updates) {
-    				const cards = updates.cards;
+				const cards = updates.cards;
 				console.log("Content cards:");
-    				console.table(cards);
+				console.table(cards);
 
 				const containerElement = document.getElementById("powContainer");
-				var cardDiv = document.createElement("div");
-				while(cardDiv.firstChild) {
-					cardDiv.removeChild(cardDiv.firstChild);
+				while(containerElement.firstChild) {
+					containerElement.removeChild(containerElement.firstChild);
 				}
 
 				if (cards && cards.length) {
 					cards.forEach((card, index) => {
+						var cardDiv = document.createElement("div");
 						if (index == 0) {
 							cardDiv.class = "item active";
 						} else {
