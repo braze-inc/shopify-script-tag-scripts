@@ -48,7 +48,9 @@ function doAfterPresent(id, action) {
 loadJs("jqueryJs", "https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js");
 loadCss("sliderCss", "https://braze-inc.github.io/shopify-script-tag-scripts/slider-test.css");
 loadCss("bootstrapCss", "https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css");
-doAfterPresent("jqueryJs", function() { loadJs("bootstrapJs", "https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"); });
+setTimeout(function() { loadJs("bootstrapJs", "https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"); }, 500);
+//doAfterPresent("jqueryJs", function() { loadJs("bootstrapJs", "https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"); });
 //loadJs("bootstrapJs", "https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js");
-loadPage("https://braze-inc.github.io/shopify-script-tag-scripts/slider-test.html");
+setTimeout(function() { loadPage("https://braze-inc.github.io/shopify-script-tag-scripts/slider-test.html"); }, 1000);
+//loadPage("https://braze-inc.github.io/shopify-script-tag-scripts/slider-test.html");
 
