@@ -52,3 +52,7 @@ body.black {
   margin-left: auto!important;
   margin-right: auto!important;
 }
+
+.carousel-panel {
+    height: 500px!important;
+}
