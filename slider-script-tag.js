@@ -37,3 +37,9 @@ loadJs("jqueryJs", "https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.mi
 loadJs("bootstrapJs", "https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js");
 loadPage("https://braze-inc.github.io/shopify-script-tag-scripts/slider-test.html");
 
+appboy.subscribeToContentCardsUpdates(function(updates) {
+    const cards = updates.cards;
+    console.table(cards);
+});
+appboy.requestContentCardsRefresh();
+

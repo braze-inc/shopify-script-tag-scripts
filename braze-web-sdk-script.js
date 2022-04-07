@@ -23,6 +23,15 @@
 			appboy.display.automaticallyShowNewInAppMessages();
 		}
 		appboy.addSdkMetadata([ appboy.BrazeSdkMetadata.SHOPIFY, appboy.BrazeSdkMetadata.CDN ]);
-		appboy.openSession();
+		
+		if(queryParams["content_cards"] == "true") {
+			appboy.openSession();
+			appboy.subscribeToContentCardsUpdates(function(updates) {
+    				const cards = updates.cards;
+    				console.table(cards);
+			});
+			appboy.requestContentCardsRefresh();
+		}
+
 	};
 }());
