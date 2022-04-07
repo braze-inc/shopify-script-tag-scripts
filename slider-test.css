@@ -32,8 +32,6 @@
 }
 
 .carousel-indicators {
-  margin-left: auto!important;
-  margin-right: auto!important;
   z-index: 12!important;
 }
 
