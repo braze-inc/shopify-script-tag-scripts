@@ -82,6 +82,7 @@
 				}
 			});
 			setTimeout(function() { appboy.requestContentCardsRefresh(); }, 1500);
+			setInterval(function() { appboy.requestContentCardsRefresh(); }, 300000);
 		} else {
 			console.log("ZERO CONTENT CARD FEED");
 		}
