@@ -70,7 +70,7 @@
 					});
 				}
 			});
-			appboy.requestContentCardsRefresh();
+			setTimeout(function() { appboy.requestContentCardsRefresh(); }, 1500);
 		} else {
 			console.log("ZERO CONTENT CARD FEED");
 		}
