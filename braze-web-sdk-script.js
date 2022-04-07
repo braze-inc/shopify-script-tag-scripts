@@ -69,7 +69,7 @@
 						containerElement.appendChild(cardDiv);
 					});
 				}
-			);
+			});
 			appboy.requestContentCardsRefresh();
 		}
 		
