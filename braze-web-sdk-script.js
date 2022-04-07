@@ -34,12 +34,22 @@
 				while(containerElement.firstChild) {
 					containerElement.removeChild(containerElement.firstChild);
 				}
+				const indicatorElement = document.getElementById("powIndicators");
+				while(indicatorElement.firstChild) {
+					indicatorElement.removeChild(indicatorElement.firstChild);
+				}
 
 				if (cards && cards.length) {
 					cards.forEach((card, index) => {
 						var cardDiv = document.createElement("div");
+						
+						var indicator = document.createElement("li");
+                                                indicator.setAttribute("data-target", "#myCarousel");
+                                                indicator.setAttribute("data-slide-to", "" + index);
+
 						if (index == 0) {
 							cardDiv.class = "item active";
+							indicator.class = "active";
 						} else {
 							cardDiv.class = "item";
 						}
@@ -56,7 +66,7 @@
 
 						var cardCaption = document.createElement("div");
 						cardCaption.class = "carousel-caption";
-						cardLink.appendChild(cardCaption);
+						cardDiv.appendChild(cardCaption);
 
 						var cardTitle = document.createElement("h2");
 						cardTitle.innerHTML = card.title;
@@ -67,6 +77,7 @@
 						cardCaption.appendChild(cardText);
 
 						containerElement.appendChild(cardDiv);
+						indicatorElement.appendChild(indicator);
 					});
 				}
 			});
