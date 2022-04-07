@@ -27,7 +27,7 @@ body.black {
   color:white;
   transform: translateY(500px);
   transition:transform 500ms ease-in-out;
-  z-index: 10;
+  z-index: 10!important;
 }
 
 .menu:hover
@@ -49,8 +49,15 @@ body.black {
 .carousel-indicators {
   margin-left: auto!important;
   margin-right: auto!important;
+  z-index: 12!important;
+}
+
+.carousel-control {
+  z-index: 12!important;
 }
 
 .carousel-panel {
-    height: 500px!important;
+  height: 500px!important;
+  margin-left: auto!important;
+  margin-right: auto!important;
 }
