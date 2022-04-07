@@ -48,7 +48,7 @@ function doAfterPresent(id, action) {
 loadCss("sliderCss", "https://braze-inc.github.io/shopify-script-tag-scripts/slider-test.css");
 loadCss("bootstrapCss", "https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css");
 loadJs("jqueryJs", "https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js");
-doAfterPresent("jqueryJs", loadJs("bootstrapJs", "https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"));
+doAfterPresent("jqueryJs", function() { loadJs("bootstrapJs", "https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"); });
 //loadJs("bootstrapJs", "https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js");
 loadPage("https://braze-inc.github.io/shopify-script-tag-scripts/slider-test.html");
 
