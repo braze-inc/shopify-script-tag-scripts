@@ -25,13 +25,14 @@
 		appboy.addSdkMetadata([ appboy.BrazeSdkMetadata.SHOPIFY, appboy.BrazeSdkMetadata.CDN ]);
 		
 		if(queryParams["content_cards"] == "true") {
-			appboy.openSession();
 			appboy.subscribeToContentCardsUpdates(function(updates) {
     				const cards = updates.cards;
     				console.table(cards);
 			});
 			appboy.requestContentCardsRefresh();
 		}
+		
+		appboy.openSession();
 
 	};
 }());
