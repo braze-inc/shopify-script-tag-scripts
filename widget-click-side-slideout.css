@@ -127,9 +127,11 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
 div.carousel-caption > h2 {
     font-family:Impact;
     font-weight:bold;
+    color:#0057b7;
 }
 
 div.carousel-caption > span {
     font-family:"Times New Roman";
     font-style:italic;
+    color:#ffd700;
 }
