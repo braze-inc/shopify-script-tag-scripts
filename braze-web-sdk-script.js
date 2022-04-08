@@ -39,9 +39,9 @@
 				}
 
 				if (cards && cards.length) {
-					document.getElementById("spin1").style.opacity = 1;
-					document.getElementById("spin2").style.opacity = 1;
-					document.getElementById("spin3").style.opacity = 1;
+					document.getElementById("spin1").removeAttribute("style");
+					document.getElementById("spin2").removeAttribute("style");
+					document.getElementById("spin3").removeAttribute("style");
 
 					cards.forEach((card, index) => {
 						var cardDiv = document.createElement("div");
