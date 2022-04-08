@@ -57,6 +57,10 @@ div.hamspin {
     color: #000;
     -webkit-tap-highlight-color:#000;
     z-index:100;
+    font-family:system-ui;
+    font-size:10px;
+    line-height:15px;
+    text-align:start;
 }
 .horizontal {
     transition: all 2s ease-in-out;
