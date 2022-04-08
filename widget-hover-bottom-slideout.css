@@ -1,6 +1,6 @@
 .openSidebarMenu
 {
-  display: hidden;
+  display: none!important;
 }
 
 input[type=checkbox].sidebarIconToggle

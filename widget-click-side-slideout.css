@@ -96,7 +96,7 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
     margin-top: -9px;
 }
 .slider-bar {
-  display:hidden;
+  display:none!important;
 }
 
 .carousel-indicators {
