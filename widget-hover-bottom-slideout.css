@@ -5,7 +5,7 @@
 
 input[type=checkbox].sidebarIconToggle
 {
-  display: hidden!important;
+  display: none!important;
 }
 
 .menu
