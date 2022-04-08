@@ -78,7 +78,7 @@ if (htmlParameter) {
 	htmlLinks.forEach((htmlLink) => {
 		if (htmlLink !== '') {
 			wait += 250;
-			setTimeout(function() { loadPage(htmlLink + "-html", urlRoot + htmlLink + ".html"); }, wait);
+			setTimeout(function() { loadPage(urlRoot + htmlLink + ".html"); }, wait);
 		}
 	});
 }
