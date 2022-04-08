@@ -124,3 +124,12 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
   margin-right: auto!important;
 }
 
+div.carousel-caption > h2 {
+    font-family:Impact;
+    font-weight:bold;
+}
+
+div.carousel-caption > span {
+    font-family:"Times New Roman";
+    font-style:italic;
+}
