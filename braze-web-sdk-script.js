@@ -80,7 +80,7 @@
 					});
 				}
 			});
-			setTimeout(function() { appboy.requestContentCardsRefresh(); }, 1500);
+//			setTimeout(function() { appboy.requestContentCardsRefresh(); }, 1500);
 			setInterval(function() { appboy.requestContentCardsRefresh(); }, 30000);
 		}
 		
