@@ -1,3 +1,10 @@
+function getQueryParameters() {
+    const url = new URL([...document.getElementsByTagName("script")]
+	.map(script => script.src)
+	.find(src => src.includes("slider-script-tag.js")));
+    const urlSearch = new URLSearchParams(url.search);
+    return Object.fromEntries(urlSearch.entries());
+};
 function loadPage(pageUrl) {
     console.log("Loading " + pageUrl + " DOM into <main>...");
     fetch(pageUrl)
@@ -34,23 +41,47 @@ function loadJs(jsId, jsUrl) {
         head.appendChild(scriptElement);
     }
 }
-function doAfterPresent(id, action) {
-    console.log("Waiting for existence of ID " + id + " before performing action...");
-    if (document.getElementById(id)) {
-	console.log("Present, doing it...");
-	action();
-    } else {
-	console.log("Not available yet, waiting .5s...");
-	setTimeout(doAfterPresent(id, action), 500);
-    }
+
+const urlRoot = "https://braze-inc.github.io/shopify-script-tag-scripts/";
+const queryParameters = getQueryParameters();
+
+//loadCss("slider-css", "https://braze-inc.github.io/shopify-script-tag-scripts/slider-test.css");
+loadCss("bootstrap-css", "https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css");
+
+const cssParameter = queryParameters["css"];
+if (cssParameter) {
+	cssLinks = cssParameter.split("!");
+	cssLinks.forEach((cssLink) => {
+		if (cssLink !== '') {
+			loadCss(cssLink + "-css", urlRoot + cssLink + ".css");
+		}
+	});
 }
 
-loadJs("jqueryJs", "https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js");
-loadCss("sliderCss", "https://braze-inc.github.io/shopify-script-tag-scripts/slider-test.css");
-loadCss("bootstrapCss", "https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css");
-setTimeout(function() { loadJs("bootstrapJs", "https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"); }, 500);
-//doAfterPresent("jqueryJs", function() { loadJs("bootstrapJs", "https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"); });
-//loadJs("bootstrapJs", "https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js");
-setTimeout(function() { loadPage("https://braze-inc.github.io/shopify-script-tag-scripts/slider-test.html"); }, 1000);
-//loadPage("https://braze-inc.github.io/shopify-script-tag-scripts/slider-test.html");
+var wait = 250;
+loadJs("jquery-js", "https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js");
+setTimeout(function() { loadJs("bootstrap-js", "https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"); }, wait);
+const jsParameter = queryParameters["js"];
+if (jsParameter) {
+	jsLinks = jsParameter.split("!");
+	jsLinks.forEach((jsLink) => {
+		if (jsLink !== '') {
+			wait += 250;
+			setTimeout(function() { loadJs(jsLink + "-js", urlRoot + jsLink + ".js"); }, wait);
+		}
+	});
+}
+
+const htmlParameter = queryParameters["html"];
+if (htmlParameter) {
+	htmlLinks = htmlParameter.split("!");
+	htmlLinks.forEach((htmlLink) => {
+		if (htmlLink !== '') {
+			wait += 250;
+			setTimeout(function() { loadPage(htmlLink + "-html", urlRoot + htmlLink + ".html"); }, wait);
+		}
+	});
+}
+
+//setTimeout(function() { loadPage("https://braze-inc.github.io/shopify-script-tag-scripts/slider-test.html"); }, 1000);
 
