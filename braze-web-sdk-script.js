@@ -85,7 +85,7 @@
 				} else {
 					document.getElementById("spin1").style.opacity = 0;
 					document.getElementById("spin2").style.opacity = 0;
-					document.getElementById("spins31").style.opacity = 0;
+					document.getElementById("spin3").style.opacity = 0;
 				}
 			});
 			setTimeout(function() { appboy.requestContentCardsRefresh(); }, 1500);
