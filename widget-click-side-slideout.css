@@ -96,13 +96,13 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-1 {
     transition: all 2s ease-in-out;
     box-sizing: border-box;
     transform: rotate(135deg);
-    margin-top: 4px;
+    margin-top: 3px;
 }
 input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
     transition: all 2s ease-in-out;
     box-sizing: border-box;
     transform: rotate(-135deg);
-    margin-top: -5px;
+    margin-top: -4px;
 }
 .slider-bar {
   display:none!important;
