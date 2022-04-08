@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css?family=Varela+Round');
 #sidebarMenu {
     height: 100%;
     position: fixed;
     left: 0;
     width: 800px;
     margin-top: 60px;
+    z-index: 10!important;
     transform: translateX(-800px);
     transition: transform 2s ease-in-out;
 }
@@ -99,4 +99,17 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
   display:hidden;
 }
 
+.carousel-indicators {
+  z-index: 12!important;
+}
+
+.carousel-control {
+  z-index: 12!important;
+}
+
+.carousel-panel {
+  height: 500px!important;
+  margin-left: auto!important;
+  margin-right: auto!important;
+}
 
