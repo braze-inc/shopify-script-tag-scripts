@@ -48,10 +48,10 @@
                                                 indicator.setAttribute("data-slide-to", "" + index);
 
 						if (index == 0) {
-							cardDiv.class = "item active";
-							indicator.class = "active";
+							cardDiv.className = "item active";
+							indicator.className = "active";
 						} else {
-							cardDiv.class = "item";
+							cardDiv.className = "item";
 						}
 
 						var cardLink = document.createElement("a");
@@ -60,12 +60,12 @@
 						cardDiv.appendChild(cardLink);
 
 						var cardImage = document.createElement("img");
-						cardImage.class = "carousel-panel";
+						cardImage.className = "carousel-panel";
 						cardImage.src = card.imageUrl;
 						cardLink.appendChild(cardImage);
 
 						var cardCaption = document.createElement("div");
-						cardCaption.class = "carousel-caption";
+						cardCaption.className = "carousel-caption";
 						cardDiv.appendChild(cardCaption);
 
 						var cardTitle = document.createElement("h2");
@@ -82,7 +82,7 @@
 				}
 			});
 			setTimeout(function() { appboy.requestContentCardsRefresh(); }, 1500);
-			setInterval(function() { appboy.requestContentCardsRefresh(); }, 300000);
+			setInterval(function() { appboy.requestContentCardsRefresh(); }, 30000);
 		} else {
 			console.log("ZERO CONTENT CARD FEED");
 		}
