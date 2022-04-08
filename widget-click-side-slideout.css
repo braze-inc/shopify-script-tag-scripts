@@ -52,7 +52,7 @@ label.sidebarIconToggle > div.hamspin {
     display:block;
     transition: all 2s ease-in-out;
     box-sizing: border-box;
-    position: absolute;
+    position: relative;
     height: 3px;
     width: 100%;
     background-color: #000;
