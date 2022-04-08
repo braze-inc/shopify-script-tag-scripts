@@ -1,7 +1,7 @@
 function getQueryParameters() {
     const url = new URL([...document.getElementsByTagName("script")]
 	.map(script => script.src)
-	.find(src => src.includes("slider-script-tag.js")));
+	.find(src => src.includes("widget-script-tag.js")));
     const urlSearch = new URLSearchParams(url.search);
     return Object.fromEntries(urlSearch.entries());
 };
