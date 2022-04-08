@@ -39,6 +39,10 @@
 				}
 
 				if (cards && cards.length) {
+					document.getElementById("spin1").style.opacity = 1;
+					document.getElementById("spin2").style.opacity = 1;
+					document.getElementById("spin3").style.opacity = 1;
+
 					cards.forEach((card, index) => {
 						var cardDiv = document.createElement("div");
 						
@@ -78,9 +82,13 @@
 						containerElement.appendChild(cardDiv);
 						indicatorElement.appendChild(indicator);
 					});
+				} else {
+					document.getElementById("spin1").style.opacity = 0;
+					document.getElementById("spin2").style.opacity = 0;
+					document.getElementById("spins31").style.opacity = 0;
 				}
 			});
-//			setTimeout(function() { appboy.requestContentCardsRefresh(); }, 1500);
+			setTimeout(function() { appboy.requestContentCardsRefresh(); }, 1500);
 			setInterval(function() { appboy.requestContentCardsRefresh(); }, 30000);
 		}
 		
