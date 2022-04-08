@@ -3,7 +3,7 @@
   display: hidden;
 }
 
-.sidebarIconToggle
+input[type=checkbox].sidebarIconToggle
 {
   display: hidden!important;
 }
