@@ -68,7 +68,7 @@ div.hamspin {
     box-sizing: border-box;
     position: relative;
     float: left;
-    margin-top: 3px;
+    margin-top: 5px;
 }
 .diagonal.part-1 {
     position: relative;
@@ -81,7 +81,7 @@ div.hamspin {
     box-sizing: border-box;
     position: relative;
     float: left;
-    margin-top: 3px;
+    margin-top: 5px;
 }
 input[type=checkbox]:checked ~ .sidebarIconToggle {
   transform: translateX(800px);
