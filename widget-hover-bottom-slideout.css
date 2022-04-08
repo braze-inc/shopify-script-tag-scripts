@@ -1,3 +1,13 @@
+.openSidebarMenu
+{
+  display: hidden;
+}
+
+.sidebarIconToggle
+{
+  display: hidden;
+}
+
 .menu
 {
   height: auto;
