@@ -5,7 +5,7 @@
 
 .sidebarIconToggle
 {
-  display: hidden;
+  display: hidden!important;
 }
 
 .menu
