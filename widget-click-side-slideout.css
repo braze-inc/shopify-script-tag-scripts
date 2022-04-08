@@ -48,8 +48,8 @@ input[type=checkbox] {
     width: 22px;
     position: fixed;
 }
-div.hamspin {
-    display:block!important;
+label.sidebarIconToggle > div.hamspin {
+    display:block;
     transition: all 2s ease-in-out;
     box-sizing: border-box;
     position: absolute;
