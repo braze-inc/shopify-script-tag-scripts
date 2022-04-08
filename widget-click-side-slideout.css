@@ -45,6 +45,7 @@ input[type=checkbox] {
     left: 15px;
     height: 22px;
     width: 22px;
+    position: fixed;
 }
 div.hamspin {
     display:block!important;
