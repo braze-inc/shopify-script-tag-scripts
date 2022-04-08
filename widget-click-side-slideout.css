@@ -61,6 +61,7 @@ div.hamspin {
     font-size:10px;
     line-height:15px;
     text-align:start;
+    letter-spacing:normal!important;
 }
 .horizontal {
     transition: all 2s ease-in-out;
