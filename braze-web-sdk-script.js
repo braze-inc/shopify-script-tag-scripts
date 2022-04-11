@@ -23,76 +23,7 @@
 			appboy.display.automaticallyShowNewInAppMessages();
 		}
 		
-		if(queryParams["content_cards"] == "true") {
-			appboy.subscribeToContentCardsUpdates(function(updates) {
-				const cards = updates.cards;
-				console.log("Content cards:");
-				console.table(cards);
-
-				const containerElement = document.getElementById("powContainer");
-				while(containerElement.firstChild) {
-					containerElement.removeChild(containerElement.firstChild);
-				}
-				const indicatorElement = document.getElementById("powIndicators");
-				while(indicatorElement.firstChild) {
-					indicatorElement.removeChild(indicatorElement.firstChild);
-				}
-
-				if (cards && cards.length) {
-					document.getElementById("spin1").removeAttribute("style");
-					document.getElementById("spin2").removeAttribute("style");
-					document.getElementById("spin3").removeAttribute("style");
-
-					cards.forEach((card, index) => {
-						var cardDiv = document.createElement("div");
-						
-						var indicator = document.createElement("li");
-                                                indicator.setAttribute("data-target", "#myCarousel");
-                                                indicator.setAttribute("data-slide-to", "" + index);
-
-						if (index == 0) {
-							cardDiv.className = "item active";
-							indicator.className = "active";
-						} else {
-							cardDiv.className = "item";
-						}
-
-						var cardLink = document.createElement("a");
-						cardLink.href = card.url;
-						cardLink.title = card.linkText;
-						cardDiv.appendChild(cardLink);
-
-						var cardImage = document.createElement("img");
-						cardImage.className = "carousel-panel";
-						cardImage.src = card.imageUrl;
-						cardLink.appendChild(cardImage);
-
-						var cardCaption = document.createElement("div");
-						cardCaption.className = "carousel-caption";
-						cardDiv.appendChild(cardCaption);
-
-						var cardTitle = document.createElement("h2");
-						cardTitle.innerHTML = card.title;
-						cardCaption.appendChild(cardTitle);
-
-						var cardText = document.createElement("span");
-						cardText.innerHTML = card.description;
-						cardCaption.appendChild(cardText);
-
-						containerElement.appendChild(cardDiv);
-						indicatorElement.appendChild(indicator);
-					});
-				} else {
-					document.getElementById("spin1").style.opacity = 0;
-					document.getElementById("spin2").style.opacity = 0;
-					document.getElementById("spin3").style.opacity = 0;
-				}
-			});
-			setTimeout(function() { appboy.requestContentCardsRefresh(); }, 1500);
-			setInterval(function() { appboy.requestContentCardsRefresh(); }, 30000);
-		}
-		
-//		appboy.addSdkMetadata([ appboy.BrazeSdkMetadata.SHOPIFY, appboy.BrazeSdkMetadata.CDN ]);
+		appboy.addSdkMetadata([ appboy.BrazeSdkMetadata.SHOPIFY, appboy.BrazeSdkMetadata.CDN ]);
 		appboy.openSession();
 
 	};
