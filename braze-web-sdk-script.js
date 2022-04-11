@@ -22,9 +22,9 @@
 		if(queryParams["in_browser_msgs"] == "true"){
 			appboy.display.automaticallyShowNewInAppMessages();
 		}
-		
 		appboy.addSdkMetadata([ appboy.BrazeSdkMetadata.SHOPIFY, appboy.BrazeSdkMetadata.CDN ]);
 		appboy.openSession();
 
 	};
 }());
+
